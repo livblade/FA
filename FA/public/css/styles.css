@@ -1,0 +1,79 @@
+/* 1. Global Reset & Professional Typography (Smart Nation 2.0 Compliance) */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: #fff; color: #222325; line-height: 1.5; }
+a { text-decoration: none; color: #62646a; font-weight: 600; transition: 0.2s; }
+a:hover { color: #1a1a1a; }
+
+/* 2. Professional Navbar (Universal) */
+.navbar { border-bottom: 1px solid #e4e5e7; padding: 18px 0; background: #fff; position: sticky; top: 0; z-index: 1000; }
+.nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 32px; }
+.logo { font-weight: 800; font-size: 32px; letter-spacing: -1.5px; color: #000; display: flex; align-items: center; }
+.logo-icon { font-size: 28px; margin-left: 5px; font-weight: 400; }
+
+.nav-right { display: flex; gap: 30px; align-items: center; }
+.nav-item { display: flex; align-items: center; font-size: 15px; height: 44px; } /* IMDA Touch Target Height */
+.arrow { font-size: 10px; margin-left: 6px; color: #b5b6ba; }
+.signup-btn { border: 1.5px solid #1a1a1a; padding: 10px 20px; border-radius: 8px; color: #1a1a1a!important; }
+
+/* 3. Hero Section (Home Page) */
+.hero { min-height: 80vh; display: flex; justify-content: center; align-items: center; text-align: center; }
+.hero-content h1 { font-size: 68px; font-weight: 800; font-style: italic; line-height: 1.1; margin-bottom: 48px; letter-spacing: -3px; text-transform: uppercase; }
+
+/* 4. Search Bar Components (Home & Navbar) [1] */
+.search-pill { 
+    display: flex; align-items: center; border: 1px solid #c5c6c9; border-radius: 60px; 
+    padding: 8px 8px 8px 32px; width: 100%; max-width: 850px; margin: 0 auto; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04); background: #fff;
+}
+.nav-search-bar { width: 380px; padding: 4px 4px 4px 20px; box-shadow: none; margin-right: 20px; }
+.search-input { border: none; outline: none; flex-grow: 1; font-size: 18px; color: #74767e; background: transparent; }
+.search-btn-dark { 
+    background: #000821; color: #fff; border: none; padding: 18px 32px; 
+    border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; 
+}
+.nav-search-btn { padding: 10px 15px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 20px; }
+
+/* 5. Popular Services Grid & Cards (Discovery Layout) */
+.page-container { max-width: 1400px; margin: 50px auto; padding: 0 32px; }
+.main-title { font-size: 42px; font-weight: 800; margin-bottom: 40px; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+
+.service-card { 
+    background: #fff; border: 1px solid #efeff0; border-radius: 20px; padding: 24px; 
+    transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1); cursor: pointer; 
+    display: flex; flex-direction: column; justify-content: space-between; min-height: 320px; 
+}
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+.card-top { display: flex; justify-content: space-between; margin-bottom: 15px; }
+.cat-tag { background: #f5f5f7; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; color: #404145; }
+.verified-tag { color: #1dbf73; font-weight: 800; font-size: 12px; } /* Trust Marker */
+
+.service-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; height: 52px; overflow: hidden; }
+.price-row { font-size: 26px; font-weight: 800; margin-bottom: 20px; }
+.rank-box { padding-top: 15px; border-top: 1px solid #eee; font-size: 14px; color: #74767e; }
+.rank-val { color: #000; font-weight: 800; }
+
+/* 6. Split Authentication Layout (Login & Signup) */
+.auth-page { max-width: 1200px; margin: 60px auto; padding: 0 32px; }
+.auth-title { text-align: center; font-size: 36px; font-weight: 800; margin-bottom: 50px; letter-spacing: -1px; }
+.auth-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; }
+.auth-brand { display: flex; justify-content: flex-end; }
+.brand-image { width: 100%; max-width: 450px; height: auto; border-radius: 20px; } /* Rounded Corners for APPROACHABLE UI */
+.auth-form-box { width: 100%; max-width: 400px; }
+.auth-input { 
+    width: 100%; padding: 16px 20px; margin-bottom: 20px; 
+    border: 1.5px solid #b5b6ba; border-radius: 8px; font-size: 16px; outline: none; 
+}
+.btn-submit { width: 100%; background: #000821; color: white; border: none; padding: 18px; border-radius: 6px; font-weight: 700; cursor: pointer; }
+
+/* 7. Divider and PDPA Prompts  */
+.divider { position: relative; text-align: center; margin: 40px 0; border-top: 1px solid #e4e5e7; }
+.divider-text { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #fff; padding: 0 15px; font-size: 12px; font-weight: 700; color: #74767e; }
+.prompt-text { text-align: center; font-weight: 700; font-size: 18px; }
+.prompt-link { text-decoration: underline; font-weight: 800; }
+
+@media (max-width: 900px) {
+ .auth-container { grid-template-columns: 1fr; }
+ .auth-brand { display: none; }
+ .hero-content h1 { font-size: 48px; }
+}

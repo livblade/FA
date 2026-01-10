@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popular Services | TRUSTMATE</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">TRUSTMATE <span class="logo-icon">✶</span></div>
+            <div class="nav-right">
+                <div class="search-pill nav-search-bar">
+                    <input type="text" placeholder="Search services..." class="search-input">
+                    <button class="search-btn-dark nav-search-btn">🔍</button>
+                </div>
+                <div class="nav-item"><a href="/tasks">Explore ▼</a></div>
+                <div class="nav-item"><a href="/login">Login</a></div>
+                <div class="nav-item"><a href="/signup" class="signup-btn">Sign up</a></div>
+            </div>
+        </div>
+    </nav>
+    <div class="page-container">
+        <h1 class="main-title">Popular Services</h1>
+        <div class="services-grid">
+            <% tasks.forEach(task => { %>
+                <div class="service-card">
+                    <div class="card-header">
+                        <div class="card-top">
+                            <span class="cat-tag"><%= task.category %></span>
+                            <% if (task.is_verified) { %>
+                                <span class="verified-tag">✓ Verified Neighbor</span>
+                            <% } %>
+                        </div>
+                        <h3><%= task.description %></h3>
+                        <div class="price-row">S$<%= task.price %></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="rank-box">
+                            Neighborhood Rank: <span class="rank-val"><%= (task.reputation_rank * 10).toFixed(1) %>/10</span>
+                        </div>
+                        <button class="btn-submit" style="border-radius: 12px; margin-top: 15px;">Book Now</button>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,23 +1,18 @@
 const db = require('../db'); 
 
 const User = {
-    // Saves a new neighbor following the Data Minimization principle [5, 6]
     create: async (userData) => {
-        const query = `
-            INSERT INTO users (username, email, password, reputation_rank, is_verified) 
-            VALUES (?,?,?, 0.5, FALSE)
-        `;
-        const values =;
+        const query = `INSERT INTO users (username, email, password, reputation_rank, is_verified) VALUES (?,?,?, 0.5, FALSE)`;
+        const values = [userData.username, userData.email, userData.password];
         const [result] = await db.query(query, values);
         return result;
     },
-
-    // FIX: Returns ONLY the first user object found or undefined
-    // Allows searching by username OR email for the login form
+    // FIX: Returns the first user object found or null
     findByIdentifier: async (identifier) => {
         const query = `SELECT * FROM users WHERE email =? OR username =?`;
         const [rows] = await db.query(query, [identifier, identifier]);
-        return rows; 
+        if (rows.length > 0) return rows;
+        return null;
     }
 };
 

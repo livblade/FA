@@ -1,88 +1,46 @@
-<<<<<<< HEAD
-/* 1. Global Reset & Professional Typography */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', -apple-system, sans-serif; background: #fff; color: #222325; line-height: 1.5; }
-a { text-decoration: none; color: #62646a; font-weight: 600; }
-
-/* 2. Professional Navbar */
-.navbar { border-bottom: 1px solid #e4e5e7; padding: 18px 0; background: #fff; position: sticky; top: 0; z-index: 1000; }
-.nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 32px; }
-.logo { font-weight: 800; font-size: 32px; letter-spacing: -1.5px; color: #000; display: flex; align-items: center; }
-.nav-right { display: flex; gap: 30px; align-items: center; }
-.nav-item { display: flex; align-items: center; font-size: 15px; height: 44px; }
-.signup-btn { border: 1.5px solid #1a1a1a; padding: 10px 22px; border-radius: 8px; color: #1a1a1a!important; font-weight: 700; white-space: nowrap; }
-
-/* 3. Hero Section (Home Page) */
-.hero { height: 75vh; display: flex; justify-content: center; align-items: center; text-align: center; }
-.hero-content h1 { font-size: 68px; font-weight: 800; font-style: italic; line-height: 1.1; margin-bottom: 48px; text-transform: uppercase; letter-spacing: -3px; }
-
-/* 4. Professional Buttons (IMDA 44px target compliant) */
-.btn-auth-submit { width: 100%; background-color: #000821; color: #fff; border: none; padding: 16px 20px; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; height: 54px; margin-top: 10px; }
-.btn-auth-submit:hover { background-color: #1a1a1a; }
-
-/* 5. Discovery UI (Popular Services Cards) */
-.page-container { max-width: 1400px; margin: 40px auto; padding: 0 32px; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-.service-card { border: 1px solid #efeff0; border-radius: 20px; padding: 24px; min-height: 350px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; cursor: pointer; }
-.verified-tag { color: #1dbf73; font-weight: 800; font-size: 12px; }
-
-/* 6. Auth Layout (Login/Signup) */
-.auth-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; max-width: 1200px; margin: 60px auto; padding: 0 32px; }
-.brand-image { width: 100%; max-width: 450px; border-radius: 20px; }
-.auth-input { width: 100%; padding: 16px; border: 1.5px solid #b5b6ba; border-radius: 8px; font-size: 16px; margin-bottom: 20px; outline: none; }
-=======
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', -apple-system, sans-serif; background: #fff; color: #222325; line-height: 1.5; }
 a { text-decoration: none; color: #62646a; font-weight: 600; transition: 0.2s; }
 a:hover { color: #1a1a1a; }
 
-/* Navbar Universal Framework */
+/* Navbar Universal Fix */
 .navbar { border-bottom: 1px solid #e4e5e7; padding: 18px 0; background: #fff; position: sticky; top: 0; z-index: 1000; }
 .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 32px; }
-.logo { font-weight: 800; font-size: 32px; letter-spacing: -1.5px; color: #000; display: flex; align-items: center; cursor: pointer; }
-.logo-icon { font-size: 28px; margin-left: 5px; font-weight: 400; }
+.logo { font-weight: 800; font-size: 28px; letter-spacing: -1px; color: #000; display: flex; align-items: center; cursor: pointer; }
+.logo-icon { font-size: 24px; margin-left: 5px; font-weight: 400; }
 
-.nav-right { display: flex; gap: 30px; align-items: center; }
+.nav-right { display: flex; gap: 25px; align-items: center; }
 .nav-item { display: flex; align-items: center; font-size: 15px; height: 44px; white-space: nowrap; }
-.arrow { font-size: 10px; margin-left: 6px; color: #b5b6ba; }
+.arrow { font-size: 10px; margin-left: 5px; color: #b5b6ba; }
 .signup-btn { border: 1.5px solid #1a1a1a; padding: 10px 22px; border-radius: 8px; color: #1a1a1a!important; font-weight: 700; }
 
-/* Hero Section Branding */
+/* Navbar Search Pill ( Discovery UI Only ) */
+.nav-search-pill { display: flex; align-items: center; border: 1px solid #c5c6c9; border-radius: 60px; padding: 4px 4px 4px 20px; width: 350px; background: #fff; margin-right: 20px; }
+.search-input { border: none; outline: none; flex-grow: 1; font-size: 15px; color: #74767e; background: transparent; }
+.search-btn-icon { background: #222325; color: #fff; border: none; width: 34px; height: 30px; border-radius: 20px; cursor: pointer; }
+
+/* Hero Section (Home) */
 .hero { height: 75vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
 .hero-content h1 { font-size: 68px; font-weight: 800; font-style: italic; line-height: 1.1; margin-bottom: 48px; letter-spacing: -3px; text-transform: uppercase; }
+.hero-search-pill { display: flex; align-items: center; border: 1px solid #c5c6c9; border-radius: 60px; padding: 8px 8px 8px 32px; width: 100%; max-width: 850px; margin: 0 auto; box-shadow: 0 4px 25px rgba(0,0,0,0.06); background: #fff; }
+.hero-btn-pill { background: #000821; color: #fff; border: none; padding: 18px 32px; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; }
 
-/* FIXED: Homepage Pill Search Bar (Image 9) */
-.hero-search-pill { 
-    display: flex; align-items: center; border: 1px solid #c5c6c9; border-radius: 60px; 
-    padding: 8px 8px 8px 32px; width: 100%; max-width: 850px; margin: 0 auto; 
-    box-shadow: 0 4px 25px rgba(0,0,0,0.06); background: #fff;
-}
-.hero-search-input { border: none; outline: none; flex-grow: 1; font-size: 18px; color: #74767e; background: transparent; }
-.btn-dark-pill { 
-    background: #000821; color: #fff; border: none; padding: 18px 32px; 
-    border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; transition: 0.3s;
-}
-
-/* Secondary Navbar Search (Discovery UI) */
-.nav-search-pill { 
-    display: flex; align-items: center; border: 1px solid #c5c6c9; border-radius: 60px; 
-    padding: 4px 4px 4px 20px; width: 350px; background: #fff; margin-right: 20px;
-}
-.nav-search-btn { background: #222325; color: #fff; border: none; width: 34px; height: 30px; border-radius: 20px; cursor: pointer; }
-
-/* Authentication Layouts */
+/* Auth Split Layout (Login/Signup) */
 .auth-page { max-width: 1200px; margin: 60px auto; padding: 0 32px; }
 .auth-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; }
+.auth-brand { display: flex; justify-content: flex-end; }
 .brand-image { width: 100%; max-width: 450px; border-radius: 20px; }
 .auth-input { width: 100%; padding: 16px 20px; margin-bottom: 20px; border: 1.5px solid #b5b6ba; border-radius: 8px; font-size: 16px; outline: none; }
-.btn-submit { width: 100%; background: #000821; color: white; border: none; padding: 18px; border-radius: 6px; font-weight: 700; height: 54px; cursor: pointer; }
+.btn-auth-submit { width: 100%; background: #000821; color: #fff; border: none; padding: 18px; border-radius: 6px; font-weight: 700; height: 54px; cursor: pointer; margin-top: 10px; }
+.divider { position: relative; text-align: center; margin: 40px 0; border-top: 1px solid #e4e5e7; }
+.divider-text { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #fff; padding: 0 15px; font-size: 12px; font-weight: 700; color: #74767e; }
 
-/* Popular Services Grid */
-.page-container { max-width: 1400px; margin: 50px auto; padding: 0 32px; }
+/* Card Grid */
+.page-container { max-width: 1400px; margin: 40px auto; padding: 0 32px; }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
 .service-card { background: #fff; border: 1px solid #efeff0; border-radius: 20px; padding: 24px; min-height: 350px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; cursor: pointer; }
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
 .verified-tag { color: #1dbf73; font-weight: 800; font-size: 12px; }
 .rank-box { padding-top: 15px; border-top: 1px solid #eee; font-size: 14px; color: #74767e; }
 
-@media (max-width: 900px) {.auth-container { grid-template-columns: 1fr; }.hero-content h1 { font-size: 48px; }.nav-search-pill { display: none; } }
->>>>>>> 192c2fff3be2bfa362c35ddfbb681e55c2e2ec9c
+@media (max-width: 900px) {.auth-container { grid-template-columns: 1fr; }.auth-brand { display: none; }.nav-search-pill { display: none; } }

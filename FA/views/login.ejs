@@ -1,14 +1,32 @@
-<main class="auth-page">
-    <h1 style="text-align:center; font-weight:800; margin-bottom:50px;">LOGIN</h1>
-    <div class="auth-container">
-        <div class="auth-brand"><img src="/img/support_local.png" class="brand-image"></div>
-        <div class="auth-form-box">
-            <form action="/auth/login" method="POST">
-                <input type="email" name="email" placeholder="Email Address" class="auth-input" required>
-                <input type="password" name="password" placeholder="password" class="auth-input" required>
-                <button type="submit" class="btn-submit">NEXT</button>
-                <p style="text-align:center; margin-top:30px; font-weight:700;">Don't have an account? <br><a href="/signup" style="text-decoration:underline;">sign up</a></p>
-            </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Login | TRUSTMATE</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav class="navbar"><div class="nav-container">
+        <a href="/" class="logo">TRUSTMATE ✶</a>
+        <div class="nav-right">
+            <div class="nav-item"><a href="/tasks">Explore ▼</a></div>
+            <div class="nav-item"><a href="#">Become a Seller</a></div>
+            <div class="nav-item"><a href="/signup" class="signup-btn">Sign up</a></div>
         </div>
-    </div>
-</main>
+    </div></nav>
+    <main class="auth-page">
+        <h1 style="text-align:center; font-weight:800; margin-bottom:50px;">LOGIN</h1>
+        <div class="auth-container">
+            <div class="auth-brand"><img src="/img/support_local.png" class="brand-image"></div>
+            <div class="auth-form-box">
+                <form action="/auth/login" method="POST">
+                    <input type="email" name="email" placeholder="Email Address" class="auth-input" required>
+                    <input type="password" name="password" placeholder="password" class="auth-input" required>
+                    <button type="submit" class="btn-auth-submit">NEXT</button>
+                    <div class="divider"><span class="divider-text">OR WITH</span></div>
+                    <p style="text-align:center; font-weight:700;">Don't have an account? <br><a href="/signup" style="text-decoration:underline;">sign up</a></p>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

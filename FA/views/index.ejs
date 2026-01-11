@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRUSTMATE - Right Choice</title>
+    <meta charset="UTF-8"><title><%= title %></title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="/" class="logo">TRUSTMATE <span class="logo-icon">✶</span></a>
-            <div class="nav-right">
-                <div class="nav-item"><a href="#">Trustmate PRO <span class="arrow">▼</span></a></div>
-                <div class="nav-item"><a href="/tasks">Explore <span class="arrow">▼</span></a></div>
-                <div class="nav-item"><a href="#">Become a Seller</a></div>
-                <div class="nav-item"><a href="/login">Login</a></div>
-                <div class="nav-item"><a href="/signup" class="signup-btn">Sign up</a></div>
-            </div>
+    <nav class="navbar"><div class="nav-container">
+        <a href="/" class="logo">TRUSTMATE <span class="logo-icon">✶</span></a>
+        <div class="nav-right">
+            <div class="nav-item"><a href="/tasks">Explore <span class="arrow">▼</span></a></div>
+            <div class="nav-item"><a href="#">Become a Seller</a></div>
+            <div class="nav-item"><a href="/login">Login</a></div>
+            <div class="nav-item"><a href="/signup" class="signup-btn">Sign up</a></div>
         </div>
-    </nav>
+    </div></nav>
     <main class="hero">
         <div class="hero-content">
             <h1>ONE SEARCH AWAY FROM<br>FIND THE RIGHT PERSON</h1>
             <div class="hero-search-pill">
-                <input type="text" placeholder="Find talent across 700+ categories" class="hero-search-input">
-                <button class="btn-dark-pill" onclick="window.location.href='/tasks'">Connect with top talent →</button>
+                <input type="text" placeholder="Find talent across 700+ categories" class="search-input">
+                <button class="hero-btn-pill" onclick="window.location.href='/tasks'">Connect →</button>
             </div>
         </div>
     </main>

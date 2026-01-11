@@ -1,7 +1,7 @@
 const db = require('../db'); 
 
 const Task = {
-    // Fetches all open tasks and their provider's status
+    // Strategic retrieval of tasks joined with neighbor reputation signals
     findAll: async () => {
         const query = `
             SELECT tasks.*, users.reputation_rank, users.is_verified

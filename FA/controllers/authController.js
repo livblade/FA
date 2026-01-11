@@ -2,8 +2,7 @@ const User = require('../models/userModel');
 
 exports.register = async (req, res) => {
     const { email, password, confirm_password } = req.body;
-    if (!email) return res.status(400).send("Email is required.");
-    if (!password) return res.status(400).send("Password is required.");
+    if (!email ||!password) return res.status(400).send("Email and password are required.");
     if (password!== confirm_password) return res.status(400).send("Passwords do not match.");
 
     try {
@@ -21,6 +20,7 @@ exports.login = async (req, res) => {
     try {
         const user = await User.findByEmail(email);
 
+        // Verification logic without logical OR symbols
         if (!user) {
             return res.status(401).send("Invalid email or password.");
         }
@@ -28,7 +28,7 @@ exports.login = async (req, res) => {
             return res.status(401).send("Invalid email or password.");
         }
 
-        // On success, redirect to the Popular Services dashboard
+        // On success, redirect to the discovery dashboard
         res.redirect('/tasks');
     } catch (err) {
         console.error("LOGIN ERROR:", err);

@@ -1,39 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register | TRUSTMATE</title>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">TRUSTMATE <span class="logo-icon">✶</span></div>
-            <div class="nav-right">
-                <div class="nav-item"><a href="/tasks">Explore ▼</a></div>
-                <div class="nav-item"><a href="/login">Login</a></div>
-            </div>
+<main class="auth-page">
+    <h1 style="text-align:center; font-weight:800; margin-bottom:50px;">REGISTER</h1>
+    <div class="auth-container">
+        <div class="auth-brand"><img src="/img/support_local.png" class="brand-image"></div>
+        <div class="auth-form-box">
+            <form action="/auth/register" method="POST">
+                <input type="email" name="email" placeholder="Email Address" class="auth-input" required>
+                <input type="password" name="password" placeholder="password" class="auth-input" required>
+                <input type="password" name="confirm_password" placeholder="confirm password" class="auth-input" required>
+                <button type="submit" class="btn-submit">NEXT</button>
+                <div style="display:flex; gap:12px; margin-top:20px; font-size:14px; align-items:flex-start;">
+                    <input type="checkbox" required style="width:20px; height:20px;">
+                    <label>By registering, you agree to the Terms, Conditions and Policies of TRUSTMATE.</label>
+                </div>
+            </form>
         </div>
-    </nav>
-    <main class="auth-page">
-        <div class="auth-container">
-            <div class="auth-brand">
-                <img src="/img/support_local.png" alt="Support Local" class="brand-image">
-            </div>
-            <div class="auth-form-box">
-                <h1 style="font-weight:800; margin-bottom:40px;">REGISTER</h1>
-                <form action="/auth/register" method="POST">
-                    <input type="email" name="email" placeholder="Email Address" class="auth-input" required>
-                    <input type="password" name="password" placeholder="Password" class="auth-input" required>
-                    <input type="password" name="confirm_password" placeholder="Confirm Password" class="auth-input" required>
-                    <button type="submit" class="btn-auth-submit">NEXT</button>
-                    <div style="display:flex; gap:12px; margin-top:20px; font-size:14px; align-items:flex-start;">
-                        <input type="checkbox" required style="width:20px; height:20px;">
-                        <label>By registering, you agree to the Terms, Conditions and Policies of TRUSTMATE.</label>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </main>
-</body>
-</html>
+    </div>
+</main>

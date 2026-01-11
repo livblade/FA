@@ -1,36 +1,18 @@
-// ========================================
-// Database Connection Configuration File
-// Uses MySQL2 library to connect to MySQL database
-// Configuration info read from .env environment variables file
-// ========================================
+const mysql = require('mysql2'); // or mysql if using that
 
-const mysql = require('mysql2');  // Import MySQL2 module
-require('dotenv').config();  // Load environment variables from .env file
-
-// ========================================
-// Create Database Connection Pool (Better for production)
-// Connection pool handles multiple concurrent connections
-// ========================================
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,          // Database host address
-    user: process.env.DB_USER,          // Database username
-    password: process.env.DB_PASSWORD,  // Database password
-    database: process.env.DB_NAME,      // Database name
-    waitForConnections: true,           // Wait when no connections available
-    connectionLimit: 10,                // Maximum number of connections
-    queueLimit: 0                       // No limit on queued requests
+const connection = mysql.createConnection({
+  host: '192.168.1.8',        // your server IP
+  user: 'shared_user',         // the shared user
+  password: 'strongpassword',  // the password
+  database: 'shared_db'        // your shared database
 });
 
-// Test connection
-pool.getConnection((err, connection) => {
-    if (err) {
-        console.error('Error connecting to MySQL:', err);
-        return;
-    }
-    console.log('Connected to MySQL database');
-    connection.release();  // Release connection back to pool
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting: ' + err.stack);
+    return;
+  }
+  console.log('Connected to shared database as id ' + connection.threadId);
 });
 
-// Export database connection pool for use by other modules
-// Use pool.query() for queries - it automatically handles connections
-module.exports = pool;
+module.exports = connection;

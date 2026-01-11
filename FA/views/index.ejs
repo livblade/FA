@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>TRUSTMATE - Home</title><link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <main class="hero"><div class="hero-content">
+        <h1>ONE SEARCH AWAY FROM<br>FIND THE RIGHT PERSON</h1>
+        <div class="hero-search-pill">
+            <form action="/tasks" method="GET" style="display:flex; width:100%; align-items:center;">
+                <input type="text" name="query" placeholder="Find talent across 700+ categories" class="hero-search-input" style="border:none; outline:none; flex-grow:1; font-size:18px;">
+                <button type="submit" class="hero-btn-dark">Connect with top talent →</button>
+            </form>
+        </div>
+    </div></main>
+</body>
+</html>

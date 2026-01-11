@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Popular Services | TRUSTMATE</title><link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="page-container"><h1 style="font-size:56px; font-weight:800; margin-bottom:40px;">Popular Services</h1>
+        <div class="services-grid">
+            <% tasks.forEach(task => { %>
+                <div class="service-card">
+                    <div class="card-header">
+                        <span class="verified-tag"><%= task.category %> <% if (task.is_verified) { %> ✓ Verified Neighbor <% } %></span>
+                        <h3 style="margin:15px 0; font-weight:800;"><%= task.description %></h3>
+                        <div style="font-size:26px; font-weight:800;">S$<%= task.price %></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="rank-box">Neighborhood Rank: <span style="font-weight:800; color:#000;"><%= (task.reputation_rank * 10).toFixed(1) %>/10</span></div>
+                        <button class="btn-submit" style="border-radius:12px; margin-top:15px; background:#000821;">Book Now</button>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Manage Services | TRUSTMATE</title><link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="page-container">
+        <p style="font-family:'Courier New', monospace; font-weight:800;">Congratulations, you have become a seller!</p>
+        <h1 style="font-size:72px; font-weight:800; margin: 20px 0;">Manage Your Services</h1>
+        <div class="manage-box">
+            <div class="service-list-ui">
+                <div style="display:flex; justify-content:space-between; border-bottom:1.5px solid #000; padding-bottom:12px; margin-bottom:24px;">
+                    <span style="font-size:20px;">🔍</span> <span style="font-size:20px;">✕</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-size:24px; font-weight:600;">
+                    <span>Cleaning</span> <span class="badge-add">add</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-size:24px; font-weight:600;">
+                    <span>Programming</span> <span class="badge-add">add</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:24px; font-weight:600;">
+                    <span>Tutoring</span> <span class="badge-add">add</span>
+                </div>
+            </div>
+            <div class="current-services-ui">
+                <h2 style="font-size:28px; font-weight:800; margin-bottom:24px;">Your Current Services</h2>
+                <div style="display:flex; justify-content:space-between; font-size:22px; font-weight:600;">
+                    <span>Pet sitting</span> <span class="badge-delete">delete</span>
+                </div>
+                <button class="btn-submit" style="background:#545454; margin-top:auto; height:60px; border-radius:12px; font-size:24px;">Confirm</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

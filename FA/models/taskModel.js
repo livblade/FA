@@ -1,7 +1,7 @@
 const db = require('../db'); 
 
 const Task = {
-    // Strategic retrieval of tasks joined with neighbor reputation signals
+    // Strategic retrieval of tasks joined with verified reputation signals
     findAll: async () => {
         const query = `
             SELECT tasks.*, users.reputation_rank, users.is_verified

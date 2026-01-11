@@ -7,6 +7,7 @@ const authController = require('./controllers/authController');
 dotenv.config();
 const app = express();
 
+// Set public folder as static root for CSS and Images - FIXES ALL UI
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -14,11 +15,13 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.get('/', (req, res) => res.render('index', { title: 'TRUSTMATE - Home' }));
+// TRUSTMATE Page Rendering (GET)
+app.get('/', (req, res) => res.render('index', { title: 'TRUSTMATE - Right Choice' }));
 app.get('/tasks', taskController.getAllTasks);
 app.get('/login', (req, res) => res.render('login', { title: 'Login | TRUSTMATE' }));
 app.get('/signup', (req, res) => res.render('signup', { title: 'Register | TRUSTMATE' }));
 
+// Auth Action Logic (POST)
 app.post('/auth/register', authController.register);
 app.post('/auth/login', authController.login);
 

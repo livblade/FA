@@ -10,7 +10,7 @@ const session = require('express-session');  // Session management
 const flash = require('connect-flash');  // Flash messages
 const multer = require('multer');  // File upload handling
 const productController = require('./controllers/productControllers'); // Product controller (MVC)
-const { DEFAULT_CATEGORY_OPTIONS } = require('./utils/categoryOptions');
+const { DEFAULT_CATEGORY_OPTIONS } = require('./utils/categoryOptions'); // REMOVED DEFAULT_CATEGORY_THEMES
 const Wallet = require('./models/wallet'); // Wallet model
 
 // Import middleware
@@ -63,12 +63,13 @@ const userControllers = require('./controllers/userControllers');
 const shippingControllers = require('./controllers/shippingControllers');
 const addressControllers = require('./controllers/addressControllers');
 const walletControllers = require('./controllers/walletControllers');
+const reviewControllers = require('./controllers/reviewControllers');
 
 // ========================================
 // Routes
 // ========================================
 
-// Home Page
+// Home Page - FIXED VERSION
 app.get('/', (req, res) => {
     const sql = 'SELECT * FROM products WHERE quantity > 0 ORDER BY category, id DESC';
     db.query(sql, (err, products) => {
@@ -90,7 +91,8 @@ app.get('/', (req, res) => {
             .map((name, index) => {
                 const sanitized = name.toString().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
                 const anchorId = sanitized ? `${sanitized}-section` : `category-${index}`;
-                const theme = DEFAULT_CATEGORY_THEMES[name] || {};
+                // FIX: Use empty object instead of DEFAULT_CATEGORY_THEMES
+                const theme = {};
                 return {
                     key: name,
                     icon: theme.icon || fallbackTheme.icon,
@@ -194,10 +196,59 @@ app.get('/logout', (req, res) => {
 });
 
 // ========================================
-// Keep all other routes unchanged
+// Product Routes
 // ========================================
-// Example: productController, cartControllers, orderControllers, shippingControllers, walletControllers
-// Anywhere in the rest of your 643 lines where you had connection.query -> replace with db.query
+
+// Shopping page (regular users)
+app.get('/shopping', checkAuthenticated, productController.listAll);
+
+// Inventory page (admin)
+app.get('/inventory', checkAuthenticated, checkAdmin, productController.listAll);
+
+// Product detail page
+app.get('/product/:id', checkAuthenticated, productController.getById);
+
+// ========================================
+// Review Routes
+// ========================================
+app.post('/product/:id/review', checkAuthenticated, reviewControllers.addReview);
+
+app.get('/product/:id/reviews', (req, res) => {
+    const productId = req.params.id;
+    reviewControllers.getReviews(productId, (err, reviews) => {
+        if (err) {
+            console.error('Error fetching reviews:', err);
+            return res.status(500).json({ error: 'Failed to fetch reviews' });
+        }
+        res.json(reviews);
+    });
+});
+
+app.get('/product/:id/average-rating', (req, res) => {
+    const productId = req.params.id;
+    reviewControllers.getAverageRating(productId, (err, data) => {
+        if (err) {
+            console.error('Error fetching average rating:', err);
+            return res.status(500).json({ error: 'Failed to fetch average rating' });
+        }
+        res.json(data);
+    });
+});
+
+app.get('/product/:id/user-review', checkAuthenticated, (req, res) => {
+    const productId = req.params.id;
+    const userId = req.session.user.id;
+    reviewControllers.getUserReview(productId, userId, (err, review) => {
+        if (err) {  
+            console.error('Error fetching user review:', err);
+            return res.status(500).json({ error: 'Failed to fetch user review' });
+        }   
+        res.json(review || {});
+    });
+});
+
+app.post('/review/:id/helpful', checkAuthenticated, reviewControllers.toggleHelpful);
+app.delete('/review/:id/helpful', checkAuthenticated, reviewControllers.deleteHelpful);
 
 // ========================================
 // Start Server

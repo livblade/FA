@@ -8,24 +8,22 @@ exports.register = async (req, res) => {
         await User.create({ username, email, password });
         res.redirect('/login');
     } catch (err) {
-        console.error("REGISTRATION ERROR:", err);
-        if (err.code === 'ER_DUP_ENTRY') return res.status(409).send("Username or Email already registered.");
-        res.status(500).send("Registration failed. Check database connection.");
+        if (err.code === 'ER_DUP_ENTRY') return res.status(409).send("Username or Email exists.");
+        res.status(500).send("Registration Error.");
     }
 };
 
 exports.login = async (req, res) => {
-    const { identifier, password } = req.body; // Supports username OR email
+    const { identifier, password } = req.body;
     try {
         const user = await User.findByIdentifier(identifier);
-
-        // Verification logic using separate checks for stability
-        if (!user) return res.status(401).send("Invalid credentials.");
-        if (user.password!== password) return res.status(401).send("Invalid credentials.");
-
-        // REDIRECT: Once logged in, go to discovery dashboard
+        if (!user || user.password !== password) {
+            return res.status(401).send("Invalid credentials.");
+        }
+        // Save user object to session
+        req.session.user = { id: user.id, username: user.username, role: user.role, is_seller: user.is_seller };
         res.redirect('/tasks');
     } catch (err) {
-        res.status(500).send("Login failure. Ensure schema.sql was run.");
+        res.status(500).send("Login failure.");
     }
 };

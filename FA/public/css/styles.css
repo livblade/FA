@@ -1,85 +1,27 @@
-/* 1. Navbar & Navigation Fix (Prevents vertical stacking in Image 17) */
-.navbar {
-    border-bottom: 1px solid #e4e5e7;
-    padding: 18px 0;
-    background: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f9f9fb; color: #222325; }
 
-.nav-container {
-    max-width: 1440px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-}
+/* Fixed Navbar for Image 17 consistency */
+.navbar { border-bottom: 1px solid #e4e5e7; padding: 18px 0; background: #fff; position: sticky; top: 0; z-index: 1000; }
+.nav-container { max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
+.logo { font-weight: 800; font-size: 32px; letter-spacing: -1.5px; color: #000; text-decoration: none; }
 
-.nav-right {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
+.nav-right { display: flex; gap: 30px; align-items: center; }
+.nav-item { display: flex; align-items: center; font-size: 15px; height: 44px; white-space: nowrap; }
+.nav-item a { text-decoration: none; color: #62646a; font-weight: 700; }
 
-/* 2. NEXT Button Styling (IMDA 44px Touch Target Compliant) */
-.btn-auth-submit {
-    width: 100%;
-    background-color: #000821; /* High-contrast navy matching branding */
-    color: #ffffff;
-    border: none;
-    padding: 16px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    height: 54px; 
-    transition: background-color 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    text-transform: uppercase;
-}
+/* Dashboard Card Grid */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-top: 30px; }
+.service-card { background: #fff; border: 1px solid #efeff0; border-radius: 20px; padding: 24px; min-height: 350px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; cursor: pointer; }
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
 
-.btn-auth-submit:hover {
-    background-color: #1a1a1a;
-}
+/* Buttons & Inputs */
+.btn-submit { background: #000821; color: #fff; border: none; padding: 16px; border-radius: 8px; font-weight: 700; font-size: 16px; height: 54px; cursor: pointer; width: 100%; }
+.auth-input { width: 100%; padding: 16px; margin-bottom: 15px; border: 1.5px solid #b5b6ba; border-radius: 8px; }
 
-/* 3. Tasks Navbar Search Pill (Fixes Image 17 and matches Image 35) */
-.nav-search-wrapper {
-    flex-grow: 1;
-    margin: 0 40px;
-    max-width: 450px;
-}
-
-.nav-search-pill {
-    display: flex;
-    align-items: center;
-    border: 1px solid #c5c6c9;
-    border-radius: 30px;
-    padding: 3px 3px 3px 20px;
-    background: #fff;
-}
-
-.nav-search-input {
-    border: none;
-    outline: none;
-    flex-grow: 1;
-    font-size: 14px;
-    color: #74767e;
-}
-
-.nav-search-btn {
-    background: #222325;
-    color: #fff;
-    border: none;
-    width: 38px;
-    height: 34px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
+/* Seller Dashboard Styles for Image 2 */
+.manage-box { display: flex; gap: 40px; margin-top: 40px; }
+.service-list-ui { background: white; border: 1.5px solid black; border-radius: 20px; padding: 20px; width: 450px; }
+.current-services-ui { background: #e0e0e0; padding: 30px; border-radius: 10px; width: 400px; }
+.badge-add { background: #1dbf73; color: white; padding: 8px 25px; border-radius: 20px; font-weight: 800; cursor: pointer; }
+.badge-delete { background: #ff4d4d; color: white; padding: 8px 15px; border-radius: 15px; font-weight: 800; cursor: pointer; }

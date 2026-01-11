@@ -1,13 +1,16 @@
-// FIX: Removed broken '../models/address' reference
 const Task = require('../models/taskModel');
 
 exports.getAllTasks = async (req, res) => {
+    const { query } = req.query; // Capture search bar input
     try {
-        const tasks = await Task.findAll();
-        // Passes dynamic database results to the view
-        res.render('tasks', { tasks });
+        let tasks;
+        if (query) {
+            tasks = await Task.search(query);
+        } else {
+            tasks = await Task.findAll();
+        }
+        res.render('tasks', { tasks, searchQuery: query || '' });
     } catch (err) {
-        console.error("Database Retrieval Error:", err);
-        res.status(500).send("Database retrieval error. Ensure schema.sql was run.");
+        res.status(500).send("Retrieval Error.");
     }
 };

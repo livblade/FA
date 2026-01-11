@@ -1,24 +1,23 @@
 const db = require('../db'); 
 
 const User = {
-    // Creates new resident profile following PDPA Data Minimization [8, 9]
+    // Saves a new neighbor following the Data Minimization principle [5, 6]
     create: async (userData) => {
         const query = `
-            INSERT INTO users (email, password, reputation_rank, is_verified) 
-            VALUES (?,?, 0.5, FALSE)
+            INSERT INTO users (username, email, password, reputation_rank, is_verified) 
+            VALUES (?,?,?, 0.5, FALSE)
         `;
-        const values = [userData.email, userData.password];
+        const values =;
         const [result] = await db.query(query, values);
         return result;
     },
 
-    // Returns first matching resident or undefined for secure auth comparison
-    findByEmail: async (email) => {
-        const query = `SELECT * FROM users WHERE email =?`;
-        const [rows] = await db.query(query, [email]);
-        // FIX: Returns the first user found (object) or undefined
-        if (rows.length > 0) return rows;
-        return null;
+    // FIX: Returns ONLY the first user object found or undefined
+    // Allows searching by username OR email for the login form
+    findByIdentifier: async (identifier) => {
+        const query = `SELECT * FROM users WHERE email =? OR username =?`;
+        const [rows] = await db.query(query, [identifier, identifier]);
+        return rows; 
     }
 };
 

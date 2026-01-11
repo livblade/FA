@@ -4,62 +4,52 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #fff; color:
 a { text-decoration: none; color: #62646a; font-weight: 600; transition: 0.2s; }
 a:hover { color: #1a1a1a; }
 
-/* 2. Navbar Framework (Universal Fix for vertical stacking) */
+/* 2. Professional Navbar Universal Fix */
 .navbar { border-bottom: 1px solid #e4e5e7; padding: 18px 0; background: #fff; position: sticky; top: 0; z-index: 1000; }
 .nav-container { max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; }
 
-/* Logo leads to Home page */
+/* Fixed: Logo leads to Home page */
 .logo { font-weight: 800; font-size: 32px; letter-spacing: -1.5px; color: #000; display: flex; align-items: center; cursor: pointer; }
 .logo-icon { font-size: 28px; margin-left: 5px; font-weight: 400; }
 
-.nav-right { display: flex; gap: 30px; align-items: center; }
-.nav-item { display: flex; align-items: center; font-size: 15px; height: 44px; white-space: nowrap; }
-.arrow { font-size: 10px; margin-left: 6px; color: #b5b6ba; }
-.signup-btn { border: 1.5px solid #1a1a1a; padding: 10px 24px; border-radius: 8px; color: #1a1a1a!important; font-weight: 700; }
-
-/* 3. Search Bar Area 1: Navbar Pill (Discovery/Tasks UI) */
-.nav-search-wrapper { flex-grow: 1; margin: 0 40px; max-width: 450px; }
+/* Navbar Search Pill (Discovery UI) */
 .nav-search-pill { 
     display: flex; align-items: center; border: 1px solid #c5c6c9; border-radius: 60px; 
-    padding: 3px 3px 3px 20px; background: #fff;
+    padding: 3px 3px 3px 20px; background: #fff; width: 350px; margin-right: 20px;
 }
 .nav-search-input { border: none; outline: none; flex-grow: 1; font-size: 14px; color: #74767e; background: transparent; }
-.nav-search-btn { 
-    background: #222325; color: #fff; border: none; width: 38px; height: 34px; 
-    border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; 
-}
+.nav-search-btn { background: #222325; color: #fff; border: none; width: 38px; height: 34px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
-/* 4. Search Bar Area 2: Hero Pill (Homepage) */
+.nav-right { display: flex; gap: 30px; align-items: center; }
+.nav-item { display: flex; align-items: center; font-size: 15px; height: 44px; white-space: nowrap; }
+.signup-btn { border: 1.5px solid #1a1a1a; padding: 10px 24px; border-radius: 8px; color: #1a1a1a!important; font-weight: 700; }
+
+/* 3. Hero Section (Home Page Fix) */
 .hero { height: 75vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
 .hero-content h1 { font-size: 68px; font-weight: 800; font-style: italic; line-height: 1.1; margin-bottom: 48px; letter-spacing: -3px; text-transform: uppercase; }
+
+/* Hero Search Pill (Reference Image 9 Alignment) */
 .hero-search-pill { 
     display: flex; align-items: center; border: 1px solid #c5c6c9; border-radius: 60px; 
     padding: 8px 8px 8px 32px; width: 100%; max-width: 850px; margin: 0 auto; 
     box-shadow: 0 4px 25px rgba(0,0,0,0.06); background: #fff;
 }
 .hero-search-input { border: none; outline: none; flex-grow: 1; font-size: 18px; color: #74767e; background: transparent; }
-.hero-btn-dark { 
-    background: #000821; color: #fff; border: none; padding: 18px 32px; 
-    border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; 
-}
+.hero-btn-dark { background: #000821; color: #fff; border: none; padding: 18px 32px; border-radius: 50px; font-weight: 700; font-size: 16px; cursor: pointer; }
 
-/* 5. Authentication (Login/Signup Image-Split Layout) */
+/* 4. Split Authentication Layout (Image 34 Reference) */
 .auth-page { max-width: 1200px; margin: 60px auto; padding: 0 32px; }
 .auth-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; }
-.auth-brand { display: flex; justify-content: flex-end; }
 .brand-image { width: 100%; max-width: 450px; border-radius: 20px; }
-.auth-form-box { width: 100%; max-width: 400px; }
 .auth-input { width: 100%; padding: 16px 20px; margin-bottom: 20px; border: 1.5px solid #b5b6ba; border-radius: 8px; font-size: 16px; outline: none; }
 .btn-auth-submit { width: 100%; background: #000821; color: white; border: none; padding: 18px; border-radius: 6px; font-weight: 700; height: 54px; cursor: pointer; }
-
 .divider { position: relative; text-align: center; margin: 40px 0; border-top: 1px solid #e4e5e7; }
 .divider-text { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #fff; padding: 0 15px; font-size: 12px; font-weight: 700; color: #74767e; }
 
-/* 6. Popular Services Card Grid UI */
+/* 5. Popular Services Card Grid UI */
 .page-container { max-width: 1440px; margin: 50px auto; padding: 0 40px; }
 .main-title { font-size: 42px; font-weight: 800; margin-bottom: 40px; }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-
 .service-card { 
     background: #fff; border: 1px solid #efeff0; border-radius: 20px; padding: 24px; 
     display: flex; flex-direction: column; justify-content: space-between; 
@@ -69,4 +59,4 @@ a:hover { color: #1a1a1a; }
 .verified-tag { color: #1dbf73; font-weight: 800; font-size: 12px; }
 .rank-box { padding-top: 15px; border-top: 1px solid #eee; font-size: 14px; color: #74767e; }
 
-@media (max-width: 1024px) {.nav-search-wrapper { display: none; }.auth-container { grid-template-columns: 1fr; }.auth-brand { display: none; } }
+@media (max-width: 1024px) {.nav-search-pill { display: none; }.auth-container { grid-template-columns: 1fr; } }

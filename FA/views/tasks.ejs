@@ -8,6 +8,7 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
+<<<<<<< HEAD
             <a href="/" class="logo">TRUSTMATE <span class="logo-icon">✶</span></a>
             <div class="nav-right">
                 <div class="search-pill nav-search">
@@ -19,12 +20,26 @@
             </div>
         </div>
     </nav>
+=======
+            <div class="logo">TRUSTMATE <span class="logo-icon">✶</span></div>
+            <div class="nav-right">
+                <a href="#">Trustmate PRO ▼</a>
+                <a href="/tasks">Explore ▼</a>
+                <a href="#">Become a Seller</a>
+                <a href="/login">Login</a>
+                <a href="/signup" class="signup-btn">Sign up</a>
+            </div>
+        </div>
+    </nav>
+
+>>>>>>> 3cfc0602c4ff4c7b179a2205a64113033b268386
     <div class="page-container">
         <h1 class="main-title">Popular Services</h1>
         <div class="services-grid">
             <% tasks.forEach(task => { %>
                 <div class="service-card">
                     <div class="card-header">
+<<<<<<< HEAD
                         <div style="display:flex; justify-content:space-between; align-items:center;">
                             <span class="verified-tag">
                                 <%= task.category %> <% if (task.is_verified) { %> ✓ Verified Neighbor <% } %>
@@ -38,6 +53,22 @@
                             Neighborhood Rank: <span style="font-weight:800; color:#000;"><%= (task.reputation_rank * 10).toFixed(1) %>/10</span>
                         </div>
                         <button class="btn-submit" style="margin-top:15px; border-radius:12px;">Book Now</button>
+=======
+                        <div class="card-top">
+                            <span class="cat-tag"><%= task.category %></span>
+                            <% if (task.is_verified) { %>
+                                <span class="verified-tag">✓ Verified Neighbor</span>
+                            <% } %>
+                        </div>
+                        <h3><%= task.description %></h3>
+                        <div class="price-row">S$<%= task.price %></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="rank-box">
+                            Neighborhood Rank: <span class="rank-val"><%= (task.reputation_rank * 10).toFixed(1) %>/10</span>
+                        </div>
+                        <button class="btn-book">Book Now</button>
+>>>>>>> 3cfc0602c4ff4c7b179a2205a64113033b268386
                     </div>
                 </div>
             <% }) %>

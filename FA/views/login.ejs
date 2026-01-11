@@ -8,6 +8,7 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
+<<<<<<< HEAD
             <div class="logo">TRUSTMATE <span class="logo-icon">✶</span></div>
             <div class="nav-right">
                 <div class="nav-item"><a href="/tasks">Explore ▼</a></div>
@@ -31,5 +32,30 @@
             </div>
         </div>
     </main>
+=======
+            <div class="logo">TRUSTMATE ✶</div>
+            <div class="nav-right">
+                <a href="/tasks">Explore ▼</a>
+                <a href="/login">Login</a>
+                <a href="/signup" class="signup-btn">Sign up</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-brand">
+            <img src="/img/support_local.png" style="width: 100%; max-width: 450px;">
+        </div>
+        <div class="login-form">
+            <h2 style="font-weight: 800; margin-bottom: 40px; font-size: 32px;">LOGIN</h2>
+            <form action="/auth/login" method="POST">
+                <input type="email" name="email" placeholder="Email Address" class="login-input" required>
+                <input type="password" name="password" placeholder="Password" class="login-input" required>
+                <button type="submit" class="search-btn-dark" style="width: 100%; border-radius: 8px;">NEXT</button>
+            </form>
+            <p style="text-align: center; margin-top: 40px; font-weight: 700;">Don’t have an account? <br> <a href="/signup" style="text-decoration: underline;">sign up</a></p>
+        </div>
+    </div>
+>>>>>>> 3cfc0602c4ff4c7b179a2205a64113033b268386
 </body>
 </html>

@@ -8,7 +8,7 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">TRUSTMATE ✶</div>
+            <div class="logo">TRUSTMATE <span class="logo-icon">✶</span></div>
             <div class="nav-right">
                 <div class="nav-item"><a href="/tasks">Explore ▼</a></div>
                 <div class="nav-item"><a href="/signup" class="signup-btn">Sign up</a></div>
@@ -16,21 +16,17 @@
         </div>
     </nav>
     <main class="auth-page">
-        <h1 class="auth-title">LOGIN</h1>
         <div class="auth-container">
             <div class="auth-brand">
                 <img src="/img/support_local.png" alt="Support Local" class="brand-image">
             </div>
             <div class="auth-form-box">
+                <h1 style="font-weight:800; margin-bottom:40px;">LOGIN</h1>
                 <form action="/auth/login" method="POST">
-                    <input type="email" name="email" placeholder="Email Address (e.g. name@mail.com)" class="auth-input" required>
+                    <input type="email" name="email" placeholder="Email Address" class="auth-input" required>
                     <input type="password" name="password" placeholder="Password" class="auth-input" required>
-                    <button type="submit" class="btn-submit">NEXT</button>
-                    <div class="divider"><span class="divider-text">OR WITH</span></div>
-                    <div class="prompt-text">
-                        <p>Don’t have an account?</p>
-                        <a href="/signup" class="prompt-link">sign up</a>
-                    </div>
+                    <button type="submit" class="btn-auth-submit">NEXT</button>
+                    <p style="text-align:center; margin-top:30px; font-weight:700;">Don't have an account? <a href="/signup" style="text-decoration:underline;">sign up</a></p>
                 </form>
             </div>
         </div>

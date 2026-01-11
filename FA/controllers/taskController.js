@@ -1,16 +1,11 @@
 const Task = require('../models/taskModel');
 
 exports.getAllTasks = async (req, res) => {
-    const { query } = req.query; // Capture search bar input
+    const { query } = req.query; // Matches search input name
     try {
-        let tasks;
-        if (query) {
-            tasks = await Task.search(query);
-        } else {
-            tasks = await Task.findAll();
-        }
-        res.render('tasks', { tasks, searchQuery: query || '' });
+        let tasks = query? await Task.search(query) : await Task.findAll();
+        res.render('tasks', { tasks });
     } catch (err) {
-        res.status(500).send("Retrieval Error.");
+        res.status(500).send("Database retrieval error.");
     }
 };

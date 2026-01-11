@@ -13,38 +13,38 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session Setup for Logged-In State
+// Session Setup for Identity Governance [8]
 app.use(session({
-    secret: 'trustmate-hdb-secret',
+    secret: 'trustmate-hdb-market-key',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Set to true if using HTTPS
+    cookie: { secure: false }
 }));
 
-// Pass session to all views for Navbar logic
+// Sync User Session with Views
 app.use((req, res, next) => {
-    res.locals.user = req.session.user || null;
+    res.locals.user = req.session.user |
+
+| null;
     next();
 });
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// --- ROUTES ---
-app.get('/', (req, res) => res.render('index', { title: 'TRUSTMATE - Home' }));
+// Page Routes
+app.get('/', (req, res) => res.render('index', { title: 'TRUSTMATE - Right Choice' }));
 app.get('/tasks', taskController.getAllTasks);
 app.get('/login', (req, res) => res.render('login', { title: 'Login | TRUSTMATE' }));
 app.get('/signup', (req, res) => res.render('signup', { title: 'Register | TRUSTMATE' }));
+app.get('/become-seller', (req, res) => res.render('become-seller', { title: 'Seller Onboarding' }));
+app.get('/seller-dashboard', sellerController.getDashboard);
 app.get('/logout', (req, res) => { req.session.destroy(); res.redirect('/'); });
 
-// Seller Flow
-app.get('/become-seller', (req, res) => res.render('become-seller', { title: 'Become a Seller' }));
-app.get('/seller-dashboard', sellerController.getDashboard);
-
-// POST Actions
+// Action Routes
 app.post('/auth/register', authController.register);
 app.post('/auth/login', authController.login);
 app.post('/seller/onboard', sellerController.onboard);
 
 const PORT = 3000;
-app.listen(PORT, () => console.log(`TRUSTMATE active on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`TRUSTMATE running on http://localhost:${PORT}`));

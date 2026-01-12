@@ -17,7 +17,7 @@ exports.login = async (req, res) => {
     try {
         const user = await User.findByIdentifier(identifier);
         
-        // Logical check for Admin Role or standard members
+        // Logic check for Admin Role or standard members
         if (!user |
 
 | user.password!== password) {

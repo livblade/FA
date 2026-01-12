@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session Setup for Identity Governance [8]
+// Session Setup
 app.use(session({
     secret: 'trustmate-hdb-market-key',
     resave: false,
@@ -21,11 +21,9 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-// Sync User Session with Views
+// Syncing User Session with Views
 app.use((req, res, next) => {
-    res.locals.user = req.session.user |
-
-| null;
+    res.locals.user = req.session.user || null;
     next();
 });
 

@@ -18,9 +18,7 @@ exports.login = async (req, res) => {
         const user = await User.findByIdentifier(identifier);
         
         // Logic check for Admin Role or standard members
-        if (!user |
-
-| user.password!== password) {
+        if (!user || user.password!== password) {
             return res.status(401).send("Invalid credentials.");
         }
         
